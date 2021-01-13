@@ -11,6 +11,7 @@
     v-model="password"
     placeholder="password">
     <br>
+    <div class="error" v-if="error">{{ error }}</div>
     <button @click="register">
       Register
     </button>
@@ -26,15 +27,23 @@ export default {
     return {
       email: '',
       password: '',
+      error: '',
     };
   },
   methods: {
     async register() {
-      const response = await AuthService.register({
-        email: this.email,
-        password: this.password,
-      });
-      console.log(response);
+      try {
+        const resp = await AuthService.register({
+          email: this.email,
+          password: this.password,
+        });
+        if (resp.data.error) {
+          this.error = resp.data.error;
+          console.log('error', resp.data.error);
+        }
+      } catch (error) {
+        this.error = error.response;
+      }
     },
   },
   props: { },
@@ -42,4 +51,7 @@ export default {
 </script>
 
 <style scoped>
+.error{
+  color: red;
+}
 </style>
