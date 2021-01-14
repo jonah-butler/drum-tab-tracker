@@ -25,4 +25,13 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+
+html{
+  overflow-y: auto !important;
+}
+
+.v-text-field__slot > label{
+  right: auto !important;
+  left: 0px !important;
+}
 </style>
