@@ -55,6 +55,7 @@
         </v-col>
       </v-row>
       <div class="error" v-if="error">{{ error }}</div>
+      <div class="success" v-if="success">{{ success }}</div>
       <v-btn
       @click="register"
       elevation="2"
@@ -80,6 +81,7 @@ export default {
       email: '',
       password: '',
       error: '',
+      success: '',
     };
   },
   methods: {
@@ -92,6 +94,8 @@ export default {
         if (resp.data.error) {
           this.error = resp.data.error;
           console.log('error', resp.data.error);
+        } else {
+          this.success = 'account created';
         }
       } catch (error) {
         this.error = error.response;

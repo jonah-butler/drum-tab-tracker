@@ -55,6 +55,7 @@
         </v-col>
       </v-row>
       <div class="error" v-if="error">{{ error }}</div>
+      <div class="success" v-if="success">{{ success }}</div>
       <v-btn
       @click="login"
       elevation="2"
@@ -80,6 +81,7 @@ export default {
       email: '',
       password: '',
       error: '',
+      success: '',
     };
   },
   methods: {
@@ -93,7 +95,7 @@ export default {
           this.error = resp.data.error;
           console.log('error', resp.data.error);
         } else {
-          console.log(resp);
+          this.success = 'login successful';
         }
       } catch (error) {
         this.error = error.response;
