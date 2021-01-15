@@ -12,6 +12,7 @@ app.use(cors());
 
 require('./routes')(app);
 
+//pass {force: true} for complete db flush
 sequelize.sync()
   .then(() => {
     app.listen(config.port || 8081);

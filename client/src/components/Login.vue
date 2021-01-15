@@ -23,7 +23,7 @@
   <v-card>
     <v-toolbar flat dark>
   <v-toolbar-title class="white--text">
-      <h1>Register</h1>
+      <h1>Login</h1>
   </v-toolbar-title>
 
   <v-spacer></v-spacer>
@@ -56,11 +56,11 @@
       </v-row>
       <div class="error" v-if="error">{{ error }}</div>
       <v-btn
-      @click="register"
+      @click="login"
       elevation="2"
       dark
       >
-        Register
+        Login
       </v-btn>
 
      </v-form>
@@ -83,15 +83,17 @@ export default {
     };
   },
   methods: {
-    async register() {
+    async login() {
       try {
-        const resp = await AuthService.register({
+        const resp = await AuthService.login({
           email: this.email,
           password: this.password,
         });
         if (resp.data.error) {
           this.error = resp.data.error;
           console.log('error', resp.data.error);
+        } else {
+          console.log(resp);
         }
       } catch (error) {
         this.error = error.response;
