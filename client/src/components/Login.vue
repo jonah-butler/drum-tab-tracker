@@ -96,6 +96,7 @@ export default {
           console.log('error', resp.data.error);
         } else {
           this.success = 'login successful';
+          console.log(resp);
         }
       } catch (error) {
         this.error = error.response;
