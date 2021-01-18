@@ -97,6 +97,8 @@ export default {
         } else {
           this.success = 'login successful';
           console.log(resp);
+          this.$store.dispatch('setToken', resp.data.token);
+          this.$store.dispatch('setUser', resp.data.user);
         }
       } catch (error) {
         this.error = error.response;

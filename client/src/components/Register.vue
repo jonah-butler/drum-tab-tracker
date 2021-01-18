@@ -1,24 +1,4 @@
 <template>
-  <!-- <v-layout column container>
-    <div class="pl-4 pr-4 pb-2">
-      <v-input>
-      </v-input>
-      <input type="email"
-      name="email"
-      v-model="email"
-      placeholder="email">
-      <br>
-      <input type="password"
-      name="password"
-      v-model="password"
-      placeholder="password">
-      <br>
-      <div class="error" v-if="error">{{ error }}</div>
-      <button @click="register">
-        Register
-      </button>
-    </div>
-  </v-layout> -->
   <v-container>
   <v-card>
     <v-toolbar flat dark>
@@ -39,6 +19,7 @@
             label="Email"
             required
             v-model="email"
+            autocomplete="new-password"
           ></v-text-field>
         </v-col>
 
@@ -96,6 +77,9 @@ export default {
           console.log('error', resp.data.error);
         } else {
           this.success = 'account created';
+          console.log(resp);
+          this.$store.dispatch('setToken', resp.data.token);
+          this.$store.dispatch('setUser', resp.data.user);
         }
       } catch (error) {
         this.error = error.response;

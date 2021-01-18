@@ -1,12 +1,12 @@
 const {User} = require('../models');
 const jwt = require('jsonwebtoken');
-const config = require('../config/config');
+// const config = require('../config/config');
 
 // async function jwtSignUser(user) {
 //   return jwt.sign(user, config.authentication.jwtSecret);
 // }
-console.log(jwt);
-console.log(config);
+// console.log(jwt);
+// console.log(config);
 // console.log(jwtSignUser({user: 'test'}));
 
 module.exports = {
@@ -45,7 +45,7 @@ module.exports = {
       }
       const userJson = user.toJSON();
       const token = jwt.sign(userJson, 'secret');
-      console.log(token);
+      // console.log(token);
       res.send({
         user: userJson,
         token: token,
