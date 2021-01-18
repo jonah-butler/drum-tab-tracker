@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     tab: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
   })
 
