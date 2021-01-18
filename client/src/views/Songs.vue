@@ -16,6 +16,7 @@
 
 <script>
 import Panel from '@/components/Panel.vue';
+import SongsService from '@/services/SongsServices';
 
 export default {
   components: {
@@ -26,8 +27,8 @@ export default {
       songs: null,
     };
   },
-  mounted() {
-
+  async mounted() {
+    this.songs = await SongsService.index();
   },
 };
 </script>
