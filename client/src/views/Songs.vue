@@ -29,6 +29,7 @@ export default {
   },
   async mounted() {
     this.songs = await SongsService.index();
+    console.log(this.songs);
   },
 };
 </script>
