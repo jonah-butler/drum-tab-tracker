@@ -1,15 +1,8 @@
 <template>
   <v-container>
-  <v-card>
-    <v-toolbar flat dark>
-  <v-toolbar-title class="white--text">
-      <h1>Register</h1>
-  </v-toolbar-title>
-
-  <v-spacer></v-spacer>
-</v-toolbar>
-    <v-divider></v-divider>
-    <v-form>
+    <Panel title="Register">
+      <div slot="main-content">
+            <v-form>
       <v-row>
         <v-col
           cols="12"
@@ -44,18 +37,20 @@
       >
         Register
       </v-btn>
-
      </v-form>
-  </v-card>
+      </div>
+    </Panel>
     </v-container>
 </template>
 
 <script>
 import AuthService from '@/services/AuthService';
+import Panel from '@/components/Panel.vue';
 
 export default {
   name: 'RegisterUser',
   components: {
+    Panel,
   },
   data() {
     return {
