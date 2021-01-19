@@ -16,6 +16,12 @@
       depressed>
       Browse
       </v-btn>
+      <v-btn
+      v-if="$store.state.isUserLoggedIn"
+      @click="navigateTo({to: '/songs/add'})"
+      depressed>
+      Add New Song
+      </v-btn>
       <v-spacer></v-spacer>
       <!-- <v-toolbar-items> -->
         <v-btn depressed
