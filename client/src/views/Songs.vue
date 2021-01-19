@@ -3,7 +3,7 @@
         <Panel title="Songs">
           <v-container slot="main-content">
             <div class="artist"
-            :key="song.title"
+            :key="song.id"
             v-for="song in songs">
               <h1>{{ song.title }}</h1>
               <h3>{{ song.artist }}</h3>
@@ -11,6 +11,13 @@
             </div>
           </v-container>
         </Panel>
+        <v-btn
+        @click="postSong"
+        elevation="2"
+        dark
+        >
+        New Song
+      </v-btn>
     </v-container>
 </template>
 
@@ -28,8 +35,19 @@ export default {
     };
   },
   async mounted() {
-    this.songs = await SongsService.index();
-    console.log(this.songs);
+    this.songs = (await SongsService.index()).data;
+  },
+  methods: {
+    async postSong() {
+      try {
+        const resp = await SongsService.post({
+          test: 'test',
+        });
+        console.log(resp);
+      } catch (err) {
+        console.log(err);
+      }
+    },
   },
 };
 </script>

@@ -12,7 +12,7 @@
     </v-toolbar-title>
     <!-- <v-toolbar-items> -->
       <v-btn
-      @click="navigateTo({to: 'songs'})"
+      @click="navigateTo({to: '/songs'})"
       depressed>
       Browse
       </v-btn>
