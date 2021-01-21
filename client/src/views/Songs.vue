@@ -12,7 +12,7 @@
           </v-container>
         </Panel>
         <v-btn
-        @click="postSong"
+        @click="postSong()"
         elevation="2"
         dark
         >
@@ -39,14 +39,9 @@ export default {
   },
   methods: {
     async postSong() {
-      try {
-        const resp = await SongsService.post({
-          test: 'test',
-        });
-        console.log(resp);
-      } catch (err) {
-        console.log(err);
-      }
+      this.$router.push({
+        path: '/songs/add',
+      });
     },
   },
 };

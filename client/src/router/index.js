@@ -39,7 +39,7 @@ const routes = [
   },
   {
     path: '/songs/add',
-    name: 'create',
+    name: 'song-create',
     component: CreateSong,
   },
 ];
