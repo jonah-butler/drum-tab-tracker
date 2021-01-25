@@ -20,7 +20,7 @@
       v-if="$store.state.isUserLoggedIn"
       @click="navigateTo({to: '/songs/add'})"
       depressed>
-      Add New Song
+      <v-icon>mdi-plus-circle</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
       <!-- <v-toolbar-items> -->
