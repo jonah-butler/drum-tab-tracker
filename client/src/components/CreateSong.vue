@@ -11,6 +11,7 @@
           <v-text-field
             label="Title"
             required
+            :rules="[required]"
             v-model="song.title"
           ></v-text-field>
         </v-col>
@@ -22,6 +23,7 @@
           <v-text-field
             label="Artist"
             required
+            :rules="[required]"
             v-model="song.artist"
           ></v-text-field>
         </v-col>
@@ -33,6 +35,7 @@
           <v-text-field
             label="Genre"
             required
+            :rules="[required]"
             v-model="song.genre"
           ></v-text-field>
         </v-col>
@@ -44,6 +47,7 @@
           <v-text-field
             label="Album"
             required
+            :rules="[required]"
             v-model="song.album"
           ></v-text-field>
         </v-col>
@@ -55,6 +59,7 @@
           <v-text-field
             label="Album Image Href"
             required
+            :rules="[required]"
             v-model="song.albumImage"
           ></v-text-field>
         </v-col>
@@ -66,6 +71,7 @@
           <v-text-field
             label="Youtube Id"
             required
+            :rules="[required]"
             v-model="song.youtubeId"
           ></v-text-field>
         </v-col>
@@ -77,13 +83,14 @@
           <v-textarea
             label="Drum Tab"
             required
+            :rules="[required]"
             v-model="song.tab"
             multi-line
           ></v-textarea>
         </v-col>
       </v-row>
-      <!-- <div class="error" v-if="error">{{ error }}</div>
-      <div class="success" v-if="success">{{ success }}</div> -->
+      <div class="error" v-if="error">{{ error }}</div>
+      <!-- <div class="success" v-if="success">{{ success }}</div> -->
       <v-btn
       @click="addSong"
       elevation="2"
@@ -117,15 +124,27 @@ export default {
         youtubeId: '',
         tab: '',
       },
+      error: null,
+      required: (value) => !!value || 'Required',
     };
   },
   methods: {
     async addSong() {
+      this.error = null;
+      const allSongFields = Object
+        .keys(this.song)
+        .every((key) => !!this.song[key]);
+      if (!allSongFields) {
+        this.error = 'Please fill in all required fields';
+        return;
+      }
       try {
-        await SongsService.post(this.song);
-        this.$router.push({
-          name: 'songs',
-        });
+        console.log(this.song);
+        const resp = await SongsService.post(this.song);
+        console.log(resp);
+        // this.$router.push({
+        //   name: 'songs',
+        // });
       } catch (err) {
         console.log(err);
       }
