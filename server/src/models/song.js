@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     albumImage: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT,
     },
     youtubeId: {
       type: DataTypes.TEXT,
