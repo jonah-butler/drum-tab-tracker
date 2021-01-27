@@ -78,6 +78,7 @@ export default {
 <style scoped>
 .song{
   overflow: hidden;
+  margin-bottom: 45px;
 }
 
 .song-details{

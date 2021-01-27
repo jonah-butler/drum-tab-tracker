@@ -44,7 +44,7 @@ const routes = [
     component: CreateSong,
   },
   {
-    path: '/songs/:songId',
+    path: '/song/:songId',
     name: 'song',
     component: Song,
   },

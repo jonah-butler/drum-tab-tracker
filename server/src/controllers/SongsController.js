@@ -20,5 +20,15 @@ module.exports = {
     } catch(err) {
         console.log('song post', err);
     }
-  }
+  },
+  async show(req, res) {
+    try {
+      const song = await Song.findByPk(req.params.songId);
+      res.send(song);
+    } catch(err) {
+      res.send({
+        error: 'an error occurred while fetching song',
+      });
+    }
+  },
 }
