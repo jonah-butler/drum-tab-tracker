@@ -4,7 +4,7 @@
       <div slot="main-content">
         <textarea
         readonly
-        v-model="song.tab"
+        v-model="tab"
         ></textarea>
       </div>
     </Panel>
@@ -19,7 +19,7 @@ export default {
     Panel,
   },
   props: [
-    'song',
+    'tab',
   ],
 };
 </script>

@@ -1,8 +1,8 @@
 <template>
   <v-layout>
   <SongMeta :song="song"/>
-  <Youtube :song="song"/>
-  <SongTab :song="song"/>
+  <Youtube :youtubeId="song.youtubeId"/>
+  <SongTab :tab="song.tab"/>
   </v-layout>
 </template>
 

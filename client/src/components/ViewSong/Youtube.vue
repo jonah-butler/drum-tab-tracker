@@ -2,7 +2,9 @@
   <v-flex xs6>
     <Panel title="Youtube">
       <v-layout slot="main-content">
-        youtube embed
+        <youtube
+        :video-id="youtubeId">
+        </youtube>
       </v-layout>
     </Panel>
   </v-flex>
@@ -16,7 +18,7 @@ export default {
     Panel,
   },
   props: [
-    'song',
+    'youtubeId',
   ],
 };
 </script>

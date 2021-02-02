@@ -53,5 +53,6 @@ html{
 
 .layout{
   flex-wrap: wrap !important;
+  justify-content: center;
 }
 </style>

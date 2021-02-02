@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify';
+import VueYoutubeEmbed from 'vue-youtube-embed';
 import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.min.css';
 import { sync } from 'vuex-router-sync';
@@ -12,6 +13,7 @@ Vue.config.productionTip = false;
 sync(store, router);
 
 Vue.use(Vuetify);
+Vue.use(VueYoutubeEmbed);
 // Vue.use(router);
 
 new Vue({
