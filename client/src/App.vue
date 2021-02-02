@@ -50,4 +50,8 @@ html{
   right: auto !important;
   left: 0px !important;
 }
+
+.layout{
+  flex-wrap: wrap !important;
+}
 </style>
