@@ -12,6 +12,18 @@
           <div class="song-genre">
             {{ song.genre }}
           </div>
+                  <v-btn
+          @click="navigate({
+            name: 'song-edit',
+            params: {
+              songId: song.id
+            }
+            })"
+          elevation="2"
+          dark
+          >
+          Edit
+        </v-btn>
         </v-flex>
         <v-flex xs6>
           <img :src="song.albumImage" alt="" class="song-album-image">
@@ -30,6 +42,11 @@ import Panel from '@/components/Panel.vue';
 export default {
   components: {
     Panel,
+  },
+  methods: {
+    async navigate(path) {
+      this.$router.push(path);
+    },
   },
   props: [
     'song',
@@ -69,5 +86,4 @@ export default {
   width: 70%;
   margin: 0 auto;
 }
-
 </style>

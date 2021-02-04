@@ -6,6 +6,7 @@ import Login from '../views/Login.vue';
 import Songs from '../views/Songs.vue';
 import CreateSong from '../views/CreateSong.vue';
 import Song from '../views/Song.vue';
+import EditSong from '../views/EditSong.vue';
 
 Vue.use(VueRouter);
 
@@ -47,6 +48,11 @@ const routes = [
     path: '/song/:songId',
     name: 'song',
     component: Song,
+  },
+  {
+    path: '/song/:songId/edit',
+    name: 'song-edit',
+    component: EditSong,
   },
 ];
 
